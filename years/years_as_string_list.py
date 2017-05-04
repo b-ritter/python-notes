@@ -1,17 +1,18 @@
 
 def years(start, end):
     """ Build a list of years in the recent past/future as strings."""
-    end = end + 1
+
     try:
-        too_far_in_past = start >= 2000
-        too_far_in_future = end <= 2020
+        too_far_in_past = start <= 1999
+        too_far_in_future = end >= 2020
         if too_far_in_future or too_far_in_past:
             raise ValueError
-    except ValueError as e:
-        print(e)
+    except ValueError:
+        print("Date is before 2000 or after 2020")
         raise
     else:
+        end = end + 1
         return [str(yr) for yr in range(start, end)]
 
 if __name__ == '__main__':
-    print(years(2006, 2015))
+    print(years(2000, 2015))
