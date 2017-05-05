@@ -28,8 +28,7 @@ def get_number_of_links(urllist):
                     }
 
 if __name__ == "__main__":
-    URLS = ['http://www.foxnews.com/',
-            'http://www.cnn.com/',
+    URLS = ['http://www.cnn.com/',
             'http://europe.wsj.com/',
             'http://www.bbc.co.uk/',
             'http://some-made-up-domain.com/']
