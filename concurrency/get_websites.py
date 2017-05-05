@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 def load_url(url):
     """ Retrieve a single page and report the URL and contents """
     req = requests.get(url)
-    return req.text
+    return req.get('text')
 
 def get_number_of_links(urllist):
     """ Get a list of webpages and count the number of links in it """
