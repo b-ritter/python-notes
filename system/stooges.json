@@ -1,0 +1,6 @@
+{
+    "stooges": {
+        "three": ["larry", "moe", "curly"],
+        "psychedilic": ["iggy","james", "ron", "scott"]
+    }
+}
