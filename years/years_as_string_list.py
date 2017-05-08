@@ -8,7 +8,6 @@ def years(start, end):
         if too_far_in_future or too_far_in_past:
             raise ValueError
     except ValueError:
-        print("Date is before 2000 or after 2020")
         raise
     else:
         end = end + 1
