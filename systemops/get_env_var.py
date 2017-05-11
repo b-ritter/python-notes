@@ -1,11 +1,13 @@
+""" Provide access to environment variables """
 import os
 
 def host():
+    """ Return the ip address and port of the localhost """
     try:
         hostname = os.environ.get('local')
-        if hostname == None:
+        if hostname is None:
             raise OSError
-    except OSError as err:
+    except OSError:
         raise
     else:
         return hostname
