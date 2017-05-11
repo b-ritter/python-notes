@@ -1,10 +1,11 @@
 import unittest
 import json
 import os
+import sys
 from unittest.mock import patch, MagicMock, mock_open
 
 from systemops.opener import get_stooges
-import settings
+from settings import ROOT_DIR
 
 class TestOpener(unittest.TestCase):
     """ Tests opening and retrieving data from json """
@@ -17,7 +18,8 @@ class TestOpener(unittest.TestCase):
         self.assertEqual(expected_result, result)
 
     def test_data_exists(self):
-        self.assertTrue(get_stooges(os.path.join(settings.ROOT_DIR, 'systemops/data/stooges.json')))
+        """ Checks that """
+        self.assertTrue(get_stooges(os.path.join(ROOT_DIR, 'systemops/data/stooges.json')))
 
 if __name__ == "__main__":
     unittest.main()
