@@ -20,13 +20,16 @@ class TestGetWebsites(unittest.TestCase):
         def make_lambdas(num):
             """ Build a lambda generator """
             for i in range(num):
-                func = lambda x: lambda: x
+                func = lambda x: lambda y: x + y
                 yield func(i)
         functions = list(make_lambdas(random.randint(1, 10)))
         random_index = random.randint(0, len(functions)-1)
-        random_function = functions[random_index]()
-        print("{0} equals {1}".format(random_index, random_function))
-        self.assertEqual(random_function, random_index)
+        random_value = random.randint(0, 100)
+        random_function = functions[random_index](random_value)
+        random_sum = random_index + random_value
+        print("{0} equals {1}".format(random_sum, random_function))
+        self.assertEqual(random_sum, random_function)
+
 
 if __name__ == "__main__":
     unittest.main()
