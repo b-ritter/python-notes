@@ -1,6 +1,6 @@
 import unittest
 
-from years.tuples import list_diff
+from lists.tuples import list_diff
 
 class TestTuples(unittest.TestCase):
 

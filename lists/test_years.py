@@ -1,6 +1,6 @@
 import unittest
 
-from years.years_as_string_list import years
+from lists.years_as_string_list import years
 
 class TestYears(unittest.TestCase):
 
