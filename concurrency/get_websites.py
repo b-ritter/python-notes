@@ -32,7 +32,7 @@ def get_number_of_links_serial(urllist):
     links = [{"url": data_item.url,
         "page_title": data_item.title.string,
         "num_links": len(data_item.find_all('a'))} for data_item in data]
-    print(links)
+    return links
 
 if __name__ == "__main__":
     URLS = ['http://www.cnn.com/',
