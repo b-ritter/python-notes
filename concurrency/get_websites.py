@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 def load_url(url):
     """ Retrieve a single page and report the URL and contents """
     req = requests.get(url)
-    return req.get('text')
+    return req.text
 
 def get_number_of_links(urllist):
     """ Get a list of webpages and count the number of links in it """
@@ -27,6 +27,13 @@ def get_number_of_links(urllist):
                     "num_links": len(links)
                     }
 
+def get_number_of_links_serial(urllist):
+    data = [BeautifulSoup(load_url(url), "html.parser") for url in urllist]
+    links = [{"url": data_item.url,
+        "page_title": data_item.title.string,
+        "num_links": len(data_item.find_all('a'))} for data_item in data]
+    print(links)
+
 if __name__ == "__main__":
     URLS = ['http://www.cnn.com/',
             'http://europe.wsj.com/',
@@ -34,4 +41,6 @@ if __name__ == "__main__":
             'http://some-made-up-domain.com/']
 
     LINKS = get_number_of_links(URLS)
-    print(list(LINKS))
+    # print(list(LINKS))
+
+    print(get_number_of_links_serial(URLS))
