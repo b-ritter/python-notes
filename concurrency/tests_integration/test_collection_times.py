@@ -21,7 +21,7 @@ class TestConcurrency(unittest.TestCase):
     @patch('concurrency.get_websites.load_url')
     def test_concurrent_slower_than_serial(self, mock_load_url, bs_mock):
         """ Time the collection of data from websites """
-        bs_data = MagicMock(return_value=["<a href='foo'>Baz</a>"])
+        bs_data = MagicMock(return_value="<html><a href='foo'>Baz</a></html>")
         bs_mock.return_value = bs_data
         mock_load_url.side_effect = lambda foo: time.sleep(self.loadtime)
         concurrent_start = time.time()
