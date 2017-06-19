@@ -15,14 +15,14 @@ class TestGetWebsites(unittest.TestCase):
     def test_load_url_returns_data(self, m):
         """ Check that we're getting the data from a request object """
         m.get = MagicMock(return_value=MockResponse())
-        data = data = load_url('fazzbear')
+        data = load_url('fazzbear')
         self.assertEqual(data, 'foo')
 
     @patch('concurrency.get_websites.requests')
     def test_load_called_with_correct_url(self, m):
         """ Check that we're making the request with the url we pass """
         m.get = MagicMock(return_value=MockResponse())
-        data = load_url('fakeurl')
+        load_url('fakeurl')
         m.get.assert_called_with('fakeurl')
 
 if __name__ == "__main__":
