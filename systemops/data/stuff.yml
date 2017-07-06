@@ -1,0 +1,9 @@
+
+map:
+  key1: "myvalue3"
+  key2: "myvalue2"
+
+list:
+  - "bar"
+  - "baz"
+  - "foo"

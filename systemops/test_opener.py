@@ -18,7 +18,7 @@ class TestOpener(unittest.TestCase):
         self.assertEqual(expected_result, result)
 
     def test_data_exists(self):
-        """ Checks that """
+        """ Checks that data file exists"""
         self.assertTrue(get_stooges(os.path.join(ROOT_DIR, 'systemops/data/stooges.json')))
 
 if __name__ == "__main__":
