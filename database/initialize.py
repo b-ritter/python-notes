@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 from user import User
+from address import Address
 from base import Base
 
 engine = create_engine('sqlite:///:memory:', echo=True)
@@ -16,5 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     session.add(ed_user)
-    our_user = session.query(User).filter_by(name='ed').first() 
-    print(our_user)
+    our_user = session.query(User).filter_by(name='ed').first()
+    print(our_user.addresses)
+    our_user.addresses = [Address(email_address="foo@bar.com")]
+    print(our_user.addresses)
