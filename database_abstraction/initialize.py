@@ -21,3 +21,5 @@ if __name__ == "__main__":
     print(our_user.addresses)
     our_user.addresses = [Address(email_address="foo@bar.com")]
     print(our_user.addresses)
+    print(our_user.addresses[0])
+    print(our_user.addresses[0].user)
