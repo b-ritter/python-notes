@@ -26,7 +26,9 @@ def verify(com, key, msg):
 
 sealed_msg = 'there'
 
-msg = commit('hey', sealed_msg)
+key = hashlib.sha256().hexdigest()
+
+msg = commit(key, sealed_msg)
 
 public_msg = msg.get('hash')
 
