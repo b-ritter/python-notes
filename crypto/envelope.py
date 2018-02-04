@@ -6,6 +6,8 @@ https://www.youtube.com/watch?v=fOMVZXLjKYo
 import hashlib
 
 def commit(key, msg):
+    """ Puzzle friendly: no solving strategy is much
+    better than trying random values of x"""
     m = hashlib.sha256()
     m.update(key)
     m.update(msg)
